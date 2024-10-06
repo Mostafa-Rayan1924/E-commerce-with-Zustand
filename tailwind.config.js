@@ -8,9 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        darkBg: "#0e1217",
-        cardDark: "#1c1f26",
-        textSmDark: "#a8b3cf",
+        primary: "#f15757",
       },
       container: {
         center: "true",
