@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import Footer from "./_components/Footer";
 import Header from "./_components/Header";
 import "./globals.css";
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
       </body>
+      <Toaster position="bottom-right" reverseOrder={false} />
     </html>
   );
 }
