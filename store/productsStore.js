@@ -33,7 +33,7 @@ const useProductsStore = create(
         }),
 
       getProductById: (id) => {
-        const filtered = items.find((item) => item.id === id);
+        const filtered = items.find((item) => item.id === Number(id));
         set({ productById: filtered });
       },
 
