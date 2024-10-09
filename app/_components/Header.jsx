@@ -7,13 +7,9 @@ import SideMenuCart from "./SideMenuCart";
 import { useEffect, useState } from "react";
 
 const Header = () => {
-  let { cart, initializeCart } = useProductsStore();
+  let { cart } = useProductsStore();
   let [openCart, setOpenCart] = useState(false);
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      initializeCart();
-    }
-  }, []);
+
   return (
     <div className="py-5 shadow-sm fixed inset-0 w-full bg-white h-[80px] grid place-items-center z-10 shadow-primary/30">
       <div className="container flex items-center gap-2 justify-between">
@@ -37,7 +33,7 @@ const Header = () => {
           </li>
           {openCart && <SideMenuCart setOpenCart={setOpenCart} />}
           <Link
-            href={"/favourites"}
+            href={"/favoriteproducts"}
             className="border-b-2 font-bold border-primary border-dotted">
             Favourites
           </Link>

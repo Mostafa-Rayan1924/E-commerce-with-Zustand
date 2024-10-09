@@ -3,7 +3,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-white">
-      <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-8 sm:px-6 lg:space-y-8 lg:px-8">
+      <div className="mx-auto max-w-screen-xl  space-y-8 px-4 py-8 sm:px-6 lg:space-y-8 lg:px-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <Image height={100} width={150} alt="logo" src="/logo.svg" />
 

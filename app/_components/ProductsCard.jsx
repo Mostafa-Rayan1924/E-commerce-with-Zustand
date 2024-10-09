@@ -6,44 +6,56 @@ import { FaListUl } from "react-icons/fa";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 
 const ProductsCard = ({ item }) => {
-  let { addToCart } = useProductsStore();
+  let { addToCart, addToFav } = useProductsStore();
   let handleAddToCart = () => {
     addToCart(item);
     toast.success("item added to cart");
   };
+  let handleAddToFav = () => {
+    addToFav(item.id);
+    toast.success("item edited successfully");
+  };
   return (
     <article className="flex relative flex-col hover:-translate-y-2.5 transition-all duration-300 sm:flex-row border rounded-lg overflow-hidden">
       <Link
-        href={`/Product/${item.id}`}
+        href={`/Product/${item?.id}`}
         className="h-[300px] sm:h-auto block sm:basis-56">
         <Image
-          src={item.imgUrl}
+          src={item?.imgUrl}
           alt=""
           className="aspect-square h-full w-full object-cover"
         />
       </Link>
-      <div className="absolute top-4 cursor-pointer hover:bg-primary transition-all duration-300 group  right-4 size-8 bg-white rounded-full border grid place-items-center ">
-        <MdOutlineFavoriteBorder className="text-primary transition-all duration-300 group-hover:text-white" />
+      <div
+        onClick={handleAddToFav}
+        className={`absolute top-4 cursor-pointer hover:bg-primary transition-all duration-300 group  right-4 size-8 ${
+          item.favorite ? "bg-primary " : "bg-white "
+        }  rounded-full border grid place-items-center `}>
+        <MdOutlineFavoriteBorder
+          className={`${
+            item.favorite ? "text-white " : "text-primary "
+          } transition-all duration-300 group-hover:text-white`}
+        />
       </div>
       <div className="flex flex-1 flex-col justify-between">
         <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
           <a href="#">
-            <h3 className="font-bold uppercase text-gray-900">{item.title}</h3>
+            <h3 className="font-bold uppercase text-gray-900">{item?.title}</h3>
           </a>
 
           <p className="mt-2 line-clamp-2 text-sm/relaxed text-gray-500">
-            {item.description}
+            {item?.description}
           </p>
 
           <p className="my-2 text-sm font-bold text-gray-900">
-            {item.price} EGP
+            {item?.price} EGP
           </p>
           <div className="flex items-center gap-2">
             <FaListUl color="#f15757" size={15} />
-            <small>{item.category}</small>
+            <small>{item?.category}</small>
           </div>
           <p className="mt-2 line-clamp-2 text-sm/relaxed text-gray-500">
-            {item.size}
+            {item?.size}
           </p>
         </div>
 

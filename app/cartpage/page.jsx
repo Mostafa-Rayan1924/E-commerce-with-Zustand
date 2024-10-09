@@ -5,7 +5,9 @@ import Image from "next/image";
 const CartPage = () => {
   let { cart } = useProductsStore();
   function getTotal() {
-    return cart.map((item) => item.price).reduce((a, b) => a + b, 0);
+    return cart
+      .map((item) => item.price * item.quantity)
+      .reduce((a, b) => a + b, 0);
   }
   console.log(getTotal());
   return (

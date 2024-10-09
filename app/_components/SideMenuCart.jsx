@@ -28,27 +28,27 @@ const SideMenuCart = ({ setOpenCart }) => {
             {cart.length > 0 ? (
               cart.map((item) => {
                 return (
-                  <li key={item.id} className="flex items-center gap-4">
+                  <li key={item?.id} className="flex items-center gap-4">
                     <Image
                       width={64}
                       height={64}
-                      src={item.imgUrl}
-                      alt={item.title}
+                      src={item?.imgUrl}
+                      alt={item?.title}
                       className=" rounded object-cover"
                     />
 
                     <div>
-                      <h3 className="text-sm text-gray-900">{item.title}</h3>
+                      <h3 className="text-sm text-gray-900">{item?.title}</h3>
 
                       <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
                         <div>
                           <dt className="inline">Size: </dt>
-                          <dd className="inline">{item.size}</dd>
+                          <dd className="inline">{item?.size}</dd>
                         </div>
 
                         <div>
                           <dt className="inline">Category: </dt>
-                          <dd className="inline">{item.category}</dd>
+                          <dd className="inline">{item?.category}</dd>
                         </div>
                       </dl>
                     </div>
@@ -56,13 +56,13 @@ const SideMenuCart = ({ setOpenCart }) => {
                     <div className="flex flex-1 items-center justify-end gap-2">
                       <form>
                         <label htmlFor="Line1Qty" className="sr-only">
-                          {item.quantity}
+                          {item?.quantity}
                         </label>
 
                         <input
                           type="number"
                           min="1"
-                          value={item.quantity}
+                          value={item?.quantity}
                           id="Line1Qty"
                           className="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                         />

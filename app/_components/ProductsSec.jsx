@@ -2,12 +2,14 @@
 import useProductsStore from "@/store/productsStore";
 import ProductsCard from "./ProductsCard";
 import Search from "./Search";
+import { useEffect } from "react";
 
 const ProductsSec = () => {
   let { Products } = useProductsStore();
   let productsMap = Products.map((item) => {
     return <ProductsCard item={item} />;
   });
+
   return (
     <div className="my-10">
       <h1 className="text-2xl mt-[120px] mb-10 border-l-4 pl-2 border-primary  ">
