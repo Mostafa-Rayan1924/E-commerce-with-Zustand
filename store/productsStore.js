@@ -33,7 +33,7 @@ const useProductsStore = create(
         }),
 
       getProductById: (id) => {
-        const filtered = items.find((item) => item.id === Number(id));
+        const filtered = items.find((item) => item.id == Number(id));
         set({ productById: filtered });
       },
 
@@ -80,6 +80,16 @@ const useProductsStore = create(
         }),
       favoriteProducts: () => {
         return get().FilteredProducts.filter((item) => item.favorite);
+      },
+      deleteItem: (id) => {
+        set((state) => {
+          let filtered = state.FilteredProducts.filter((item) => item.id != id);
+          console.log(filtered);
+          return {
+            FilteredProducts: filtered,
+            Products: filtered,
+          };
+        });
       },
     }),
 

@@ -4,6 +4,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { FaListUl } from "react-icons/fa";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
+import ChoicesOfUser from "./ChoicesOfUser";
 
 const ProductsCard = ({ item }) => {
   let { addToCart, addToFav } = useProductsStore();
@@ -28,7 +29,7 @@ const ProductsCard = ({ item }) => {
       </Link>
       <div
         onClick={handleAddToFav}
-        className={`absolute top-4 cursor-pointer hover:bg-primary transition-all duration-300 group  right-4 size-8 ${
+        className={`absolute top-4 cursor-pointer hover:bg-primary transition-all duration-300 group  right-4 sm:right-10 size-8 ${
           item.favorite ? "bg-primary " : "bg-white "
         }  rounded-full border grid place-items-center `}>
         <MdOutlineFavoriteBorder
@@ -39,9 +40,12 @@ const ProductsCard = ({ item }) => {
       </div>
       <div className="flex flex-1 flex-col justify-between">
         <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-          <a href="#">
+          <div className="flex items-center justify-between" href="#">
             <h3 className="font-bold uppercase text-gray-900">{item?.title}</h3>
-          </a>
+            <div className="mt-[-2px] sm:translate-x-3 ">
+              <ChoicesOfUser item={item} />
+            </div>
+          </div>
 
           <p className="mt-2 line-clamp-2 text-sm/relaxed text-gray-500">
             {item?.description}
