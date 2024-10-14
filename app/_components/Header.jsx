@@ -17,7 +17,7 @@ const Header = () => {
           <Image
             height={100}
             width={150}
-            className="w-[100px] sm:w-[150px]"
+            className="w-[150px]"
             alt="logo"
             src="/logo.svg"
           />

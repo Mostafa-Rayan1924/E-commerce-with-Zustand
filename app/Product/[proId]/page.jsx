@@ -20,9 +20,9 @@ const ProductDetails = ({ params }) => {
           <Image
             src={productById?.imgUrl}
             alt="Product Image"
-            width={500}
-            height={500}
-            className="object-cover h-full w-full"
+            width={400}
+            height={400}
+            className="object-cover aspect-square h-full w-full"
           />
         </div>
 

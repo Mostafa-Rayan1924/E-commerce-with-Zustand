@@ -7,6 +7,7 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import ChoicesOfUser from "./ChoicesOfUser";
 
 const ProductsCard = ({ item }) => {
+  console.log(item);
   let { addToCart, addToFav } = useProductsStore();
   let handleAddToCart = () => {
     addToCart(item);
@@ -23,6 +24,8 @@ const ProductsCard = ({ item }) => {
         className="h-[300px] sm:h-auto block sm:basis-56">
         <Image
           src={item?.imgUrl}
+          width={300}
+          height={300}
           alt=""
           className="aspect-square h-full w-full object-cover"
         />

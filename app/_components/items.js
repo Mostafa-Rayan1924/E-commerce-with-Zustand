@@ -134,7 +134,6 @@ export const items = [
     price: 300,
     category: "Women",
     quantity: 1,
-
     size: "Small",
     imgUrl: img4,
     favorite: false,

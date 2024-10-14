@@ -3,6 +3,7 @@ import useProductsStore from "@/store/productsStore";
 import ProductsCard from "./ProductsCard";
 import Search from "./Search";
 import { useEffect } from "react";
+import AddProduct from "./AddProduct";
 
 const ProductsSec = () => {
   let { Products } = useProductsStore();
@@ -18,6 +19,9 @@ const ProductsSec = () => {
       <Search />
       <div className="space-y-5">
         {Products.length > 0 ? productsMap : <h1>No Products</h1>}
+      </div>
+      <div className="fixed bottom-10 right-10">
+        <AddProduct />
       </div>
     </div>
   );
