@@ -91,6 +91,14 @@ const useProductsStore = create(
           };
         });
       },
+      deleteItemFromCart: (id) => {
+        set((state) => {
+          let filtered = state.cart.filter((item) => item.id != id);
+          return {
+            cart: filtered,
+          };
+        });
+      },
       addProduct: (item) => {
         set((state) => {
           let addedItem = [...state.FilteredProducts, item];

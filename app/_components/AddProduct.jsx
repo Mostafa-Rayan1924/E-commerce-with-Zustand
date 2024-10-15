@@ -28,6 +28,19 @@ const AddProduct = () => {
   });
   let handleAdd = (e) => {
     e.preventDefault();
+
+    if (
+      !formData.title ||
+      !formData.description ||
+      !formData.price ||
+      !formData.category ||
+      !formData.size ||
+      !formData.imgUrl
+    ) {
+      toast.error("Please fill all fields");
+      return;
+    }
+
     let data = {
       id: formData.id,
       quantity: formData.quantity,
@@ -36,13 +49,15 @@ const AddProduct = () => {
       price: formData.price,
       category: formData.category,
       size: formData.size,
-      imgUrl: URL.createObjectURL(formData?.imgUrl),
+      imgUrl: formData.imgUrl ? URL.createObjectURL(formData.imgUrl) : null,
       favorite: formData.favorite,
     };
+
     addProduct(data);
-    toast.success("item added successfully");
+    toast.success("Item added successfully");
     setOpen(false);
   };
+
   let handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({
@@ -50,7 +65,6 @@ const AddProduct = () => {
       [name]: name === "imgUrl" ? files[0] : value,
     });
   };
-  console.log(formData);
   return (
     <Dialog open={open}>
       <DialogTrigger asChild>
@@ -62,9 +76,9 @@ const AddProduct = () => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[525px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle> Add Product</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Add your new items to the inventory
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
@@ -95,6 +109,7 @@ const AddProduct = () => {
               Price
             </label>
             <input
+              type="number"
               onChange={handleChange}
               required
               name="price"

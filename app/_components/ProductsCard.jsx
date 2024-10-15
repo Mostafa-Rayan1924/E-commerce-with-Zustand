@@ -7,7 +7,6 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import ChoicesOfUser from "./ChoicesOfUser";
 
 const ProductsCard = ({ item }) => {
-  console.log(item);
   let { addToCart, addToFav } = useProductsStore();
   let handleAddToCart = () => {
     addToCart(item);

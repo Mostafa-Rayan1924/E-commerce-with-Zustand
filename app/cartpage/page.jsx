@@ -3,7 +3,7 @@ import useProductsStore from "@/store/productsStore";
 import Image from "next/image";
 
 const CartPage = () => {
-  let { cart } = useProductsStore();
+  let { cart, deleteItemFromCart } = useProductsStore();
   function getTotal() {
     return cart
       .map((item) => item.price * item.quantity)
@@ -67,7 +67,9 @@ const CartPage = () => {
                       <div className="p-2 rounded bg-gray-200 text-[10px] text-gray-600">
                         {item.price}
                       </div>
-                      <button className="text-gray-600 transition hover:text-red-600">
+                      <button
+                        onClick={() => deleteItemFromCart(item.id)}
+                        className="text-gray-600 transition hover:text-red-600">
                         <span className="sr-only">Remove item</span>
 
                         <svg

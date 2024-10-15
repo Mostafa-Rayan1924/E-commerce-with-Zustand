@@ -2,11 +2,12 @@
 import useProductsStore from "@/store/productsStore";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { IoIosCloseCircle } from "react-icons/io";
 
 const SideMenuCart = ({ setOpenCart }) => {
   let { cart } = useProductsStore();
-
+  let router = useRouter();
   return (
     <div className="absolute top-[81px] right-0">
       <div
@@ -94,11 +95,14 @@ const SideMenuCart = ({ setOpenCart }) => {
             )}
             {cart.length > 0 && (
               <li style={{ marginBottom: "80px" }} className="text-center ">
-                <Link
-                  href="/cartpage"
-                  className="block rounded border  px-5 py-3 text-sm transition-all duration-300 bg-primary text-white hover:scale-105 ">
+                <button
+                  onClick={() => {
+                    setOpenCart(false);
+                    router.push("/cartpage");
+                  }}
+                  className="w-full rounded border  px-5 py-3 text-sm transition-all duration-300 bg-primary text-white hover:scale-105 ">
                   View my cart ({cart.length})
-                </Link>
+                </button>
               </li>
             )}
           </ul>
